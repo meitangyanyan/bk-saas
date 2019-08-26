@@ -66,6 +66,7 @@
         </div>
         <div class="king-layout2-main mt15" style="width:960px;">
             <form class="form-horizontal" action="/" method="post">
+                {% csrf_token %}
                 <div class="form-group clearfix ">
                     <label class="col-sm-3 control-label bk-lh30 pt0">操作：</label>
                     <div class="col-sm-9">
@@ -90,7 +91,7 @@
             <div class="king-widget1  m0">
                 <div class="king-widget2-content p25">
                     <div class="king-counter king-counter-lg">
-                        <span class="king-counter-number">${data}</span>
+                        <span class="king-counter-number">{{ data }}</span>
                         <div class="king-counter-label text-uppercase">结果</div>
                     </div>
                 </div>

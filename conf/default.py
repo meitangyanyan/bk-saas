@@ -89,8 +89,8 @@ except:
 SECRET_KEY = 'MQtd_0cw&AiY5jT&&#w7%9sCK=HW$O_e%ch4xDd*AaP(xU0s3X'
 # CSRF的COOKIE域，默认使用当前域
 # CSRF_COOKIE_DOMAIN =''
-#SRF_COOKIE_PATH = SITE_URL
-CSRF_COOKIE_PATH = "/"
+# CSRF_COOKIE_PATH = SITE_URL
+CSRF_COOKIE_PATH = '/'
 
 ALLOWED_HOSTS = ['*']
 # ==============================================================================
