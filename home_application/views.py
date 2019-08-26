@@ -62,7 +62,7 @@ def home(request):
     elif button == "decrypt":
         res=mydes.decrypt(argv)
     else:
-        res="error"
+        res=""
 
     return render_mako_context(request, '/home_application/home.html',{"data":res})
 
