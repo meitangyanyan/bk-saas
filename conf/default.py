@@ -98,7 +98,7 @@ ALLOWED_HOSTS = ['*']
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -171,7 +171,7 @@ TEMPLATES = [
                 # the context to the templates
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.request',
-                #'django.template.context_processors.csrf',
+                'django.template.context_processors.csrf',
                 'common.context_processors.mysetting',   # 自定义模版context，可在页面中使用STATIC_URL等变量
                 'django.template.context_processors.i18n',
             ],
