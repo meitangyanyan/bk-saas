@@ -10,7 +10,7 @@ See the License for the specific language governing permissions and limitations 
 """
 
 from common.mymako import render_mako_context
-
+from django.views.decorators.csrf import csrf_exempt
 from Crypto.Cipher import DES
 
 class MyDESCrypt:
@@ -49,6 +49,7 @@ class MyDESCrypt:
         except:
             return ""
 
+@csrf_exempt
 def home(request):
     """
     首页
