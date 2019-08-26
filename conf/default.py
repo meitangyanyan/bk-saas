@@ -30,16 +30,17 @@ from django.conf.global_settings import *  # noqa
 # 应用基本信息配置 (请按照说明修改)
 # ==============================================================================
 # 在蓝鲸智云开发者中心 -> 点击应用ID -> 基本信息 中获取 APP_ID 和 APP_TOKEN 的值
-APP_ID = 'rancher-test'
-APP_TOKEN = ''
+APP_ID = 'rancher'
+APP_TOKEN = '1cf3f9cd-046f-42ca-a620-a84b421436bd'
 # 蓝鲸智云开发者中心的域名，形如：http://paas.bking.com
-BK_PAAS_HOST = ''
+BK_PAAS_HOST = 'http://paas.huikeyun.net'
+
 
 # 请求官方 API 默认版本号，可选值为："v2" 或 ""；其中，"v2"表示规范化API，""表示未规范化API
 DEFAULT_BK_API_VER = 'v2'
 
 # 是否启用celery任务
-IS_USE_CELERY = True
+IS_USE_CELERY = False
 # 本地开发的 celery 的消息队列（RabbitMQ）信息
 BROKER_URL_DEV = 'amqp://guest:guest@127.0.0.1:5672/'
 # TOCHANGE 调用celery任务的文件路径, List of modules to import when celery starts.
@@ -97,7 +98,7 @@ ALLOWED_HOSTS = ['*']
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -170,7 +171,7 @@ TEMPLATES = [
                 # the context to the templates
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.request',
-                'django.template.context_processors.csrf',
+                #'django.template.context_processors.csrf',
                 'common.context_processors.mysetting',   # 自定义模版context，可在页面中使用STATIC_URL等变量
                 'django.template.context_processors.i18n',
             ],

@@ -11,12 +11,61 @@ See the License for the specific language governing permissions and limitations 
 
 from common.mymako import render_mako_context
 
+from Crypto.Cipher import DES
+
+class MyDESCrypt:
+
+    key = chr(11)+chr(12)+chr(13)+chr(14)+chr(11)+chr(11)+chr(11)+chr(11)
+    iv = chr(22)+chr(22)+chr(22)+chr(22)+chr(22)+chr(22)+chr(22)+chr(22)
+
+    def __init__(self,key='',iv=''):
+        if len(key)> 0:
+            self.key = key
+        if len(iv)>0 :
+            self.iv = iv
+
+    def ecrypt(self,ecryptText):
+       try:
+           cipherX = DES.new(self.key, DES.MODE_CBC, self.iv)
+           pad = 8 - len(ecryptText) % 8
+           padStr = ""
+           for i in range(pad):
+              padStr = padStr + chr(pad)
+           ecryptText = ecryptText + padStr
+           x = cipherX.encrypt(ecryptText)
+           return x.encode('hex_codec').upper()
+       except:
+           print 123
+           return ""
+
+
+    def decrypt(self,decryptText):
+        try:
+
+            cipherX = DES.new(self.key, DES.MODE_CBC, self.iv)
+            str = decryptText.decode('hex_codec')
+            y = cipherX.decrypt(str)
+            return y[0:ord(y[len(y)-1])*-1]
+        except:
+            return ""
 
 def home(request):
     """
     首页
     """
-    return render_mako_context(request, '/home_application/home.html')
+    argv=request.POST.get("argv")
+    button=request.POST.get("button")
+
+    mydes = MyDESCrypt()
+    if button == "ecrypt":
+        res=mydes.ecrypt(argv)
+    elif button == "decrypt":
+        res=mydes.decrypt(argv)
+    else:
+        res="error"
+
+    return render_mako_context(request, '/home_application/home.html',{"data":res})
+
 
 
 def dev_guide(request):
