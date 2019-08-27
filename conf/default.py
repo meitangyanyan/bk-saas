@@ -91,6 +91,7 @@ SECRET_KEY = 'MQtd_0cw&AiY5jT&&#w7%9sCK=HW$O_e%ch4xDd*AaP(xU0s3X'
 # CSRF_COOKIE_DOMAIN =''
 # CSRF_COOKIE_PATH = SITE_URL
 CSRF_COOKIE_PATH = '/'
+CSRF_COOKIE_NAME= 'bk_csrftoken'
 
 ALLOWED_HOSTS = ['*']
 # ==============================================================================
