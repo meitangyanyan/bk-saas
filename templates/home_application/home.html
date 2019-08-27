@@ -45,7 +45,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" style="padding: 1px 20px" href="javascript:;">
-                            <img src="${STATIC_URL}img/logo.png" alt="" class="logo"> </a>
+                            <img src="{{ STATIC_URL }}img/logo.png" alt="" class="logo"> </a>
                     </div>
                     <div class="collapse navbar-collapse navbar-responsive-collapse" id="king-horizontal-nav2-collapse">
                         <ul class="nav navbar-nav">
@@ -65,7 +65,7 @@
             </nav>
         </div>
         <div class="king-layout2-main mt15" style="width:960px;">
-            <form class="form-horizontal" action="/" method="post">
+            <form class="form-horizontal" action="{{ SITE_URL }}" method="post">
                 {% csrf_token %}
                 <div class="form-group clearfix ">
                     <label class="col-sm-3 control-label bk-lh30 pt0">操作：</label>
